@@ -1,0 +1,11 @@
+resources: 
+- ./argocd-applicationset-controller.yaml
+- ./argocd-dex-server.yaml
+- ./argocd-metrics.yaml
+- ./argocd-notifications-controller-metrics.yaml
+- ./argocd-redis.yaml
+- ./argocd-repo-server.yaml
+- ./argocd-server-metrics.yaml
+- ./argocd-server.yaml
+
+namespace: argocd

@@ -1,0 +1,10 @@
+resources: 
+- ./repositories.yaml
+
+commonLabels: 
+  argocd.argoproj.io/secret-type: repository
+
+commonAnnotations:
+  managed-by: argocd.argoproj.io
+
+namespace: argocd

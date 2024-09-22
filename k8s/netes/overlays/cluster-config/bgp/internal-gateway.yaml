@@ -1,0 +1,26 @@
+---
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: Gateway
+metadata:
+  name: internal-gateway
+  namespace: kube-system
+  labels:
+    bgp-service: 'true'
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  gatewayClassName: cilium
+  listeners:
+  - name: https-internal
+    protocol: HTTPS
+    port: 443
+    hostname: '*.maximillian.se'
+    tls:
+      certificateRefs:
+      - kind: Secret
+        name: star.maximillian.se
+        namespace: kube-system
+#        group: ''
+    allowedRoutes:
+      namespaces:
+        from: All

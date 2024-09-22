@@ -1,0 +1,21 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd
+  namespace: argocd
+spec:
+  destination:
+    name: in-cluster
+  project: default
+  source:
+    path: k8s/netes/overlays/argocd
+    repoURL: git@github.com:Schabo/homelab.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
+    syncOptions:
+      - PruneLast=false
+      - CreateNamespace=true

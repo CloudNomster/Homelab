@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: homelab
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    directory:
+      recurse: true
+    path: k8s/netes/apps
+    repoURL: git@github.com:Schabo/homelab.git
+    targetRevision: HEAD
+    plugin:
+  syncPolicy:
+    automated:
+      prune: false 
+      selfHeal: true 
+      allowEmpty: false 
+    syncOptions:     
+    - Validate=true 
+    - CreateNamespace=true 

@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager
+  namespace: argocd
+spec:
+  destination:
+    namespace: cert-manager
+    name: in-cluster
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+    - Validate=true
+    - CreateNamespace=true
+    - RespectIgnoreDifferences=true
+    - ServerSideApply=true
+  source:
+    repoURL: https://github.com/Schabo/helm-cert-manager
+    targetRevision: main
+    path: .
+    helm:
+      releaseName: cert-manager
+      valueFiles:
+        - values.yaml
+#      values: |
+#        crds:
+#          enabled: true
+#          keep: true
+#        config:
+#          apiVersion: controller.config.cert-manager.io/v1alpha1
+#          kind: ControllerConfiguration
+#          enableGatewayAPI: true
+        

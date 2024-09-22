@@ -1,0 +1,35 @@
+resources: 
+- ./argocd-dex-server.yaml
+- ./argocd-notifications-controller.yaml
+- ./argocd-redis.yaml
+- ./argocd-repo-server.yaml
+- ./argocd-server.yaml
+- ./argocd-applicationset-controller.yaml
+
+namespace: argocd
+
+images:
+- name: argocd-application-controller
+  newName: quay.io/argoproj/argocd
+  newTag: latest
+- name: argocd-applicationset-controller
+  newName: quay.io/argoproj/argocd
+  newTag: latest
+- name: argocd-dex-server
+  newName: quay.io/argoproj/argocd
+  newTag: latest
+- name: argocd-notifications-controller
+  newName: quay.io/argoproj/argocd
+  newTag: latest
+- name: redis
+  newName: redis
+  newTag: 6.2.6-alpine
+- name: argocd-repo-server
+  newName: quay.io/argoproj/argocd
+  newTag: latest
+- name: copyutil
+  newName: quay.io/argoproj/argocd
+  newTag: latest
+- name: argocd-server
+  newName: quay.io/argoproj/argocd
+  newTag: latest

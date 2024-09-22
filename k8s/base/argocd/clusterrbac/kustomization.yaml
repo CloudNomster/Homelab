@@ -1,0 +1,8 @@
+resources: 
+- ./clusterrolebindings.yaml
+- ./clusterroles.yaml
+
+commonLabels: 
+  app.kubernetes.io/part-of: argocd
+
+namespace: default

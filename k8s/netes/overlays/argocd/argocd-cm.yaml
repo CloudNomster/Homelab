@@ -1,0 +1,70 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+  labels:
+    app.kubernetes.io/name: argocd-cm
+    app.kubernetes.io/part-of: argocd
+  annotations: 
+    avp.kubernetes.io/path: k8s/data/argocd/secrets/sso
+data:
+  url: https://argocd.maximillian.se
+  accounts.backstage: apiKey
+  kustomize.buildOptions: --load-restrictor LoadRestrictionsNone
+  configManagementPlugins: |-
+    - name: argocd-vault-plugin
+      generate:
+        command: ["argocd-vault-plugin"]
+        args: ["generate", "./"]
+        
+    - name: argocd-vault-plugin-helm
+      generate:
+        command: ["sh", "-c"]
+        args: ['helm template "$ARGOCD_APP_NAME" -n "$ARGOCD_APP_NAMESPACE" . | argocd-vault-plugin generate -']
+
+    # This lets you pass args to the Helm invocation as described here: https://argocd-vault-plugin.readthedocs.io/en/stable/usage/#with-helm
+    # IMPORTANT: passing $helm_args effectively allows users to run arbitrary code in the Argo CD repo-server.
+    # Only use this when the users are completely trusted. If possible, determine which Helm arguments are needed by 
+    # your users and explicitly pass only those arguments.
+    - name: argocd-vault-plugin-helm-with-args
+      generate:
+        command: ["sh", "-c"]
+        args: ['helm template "$ARGOCD_APP_NAME" -n "$ARGOCD_APP_NAMESPACE" ${helm_args} . | argocd-vault-plugin generate -']
+
+    # This lets you pass a values file as a string as described here:
+    # https://argocd-vault-plugin.readthedocs.io/en/stable/usage/#with-helm
+    - name: argocd-vault-plugin-helm-with-values
+      generate:
+        command: ["bash", "-c"]
+        args: ['helm template "$ARGOCD_APP_NAME" -n "$ARGOCD_APP_NAMESPACE" -f <(echo "$ARGOCD_ENV_HELM_VALUES") . | argocd-vault-plugin generate -']
+
+    - name: argocd-vault-plugin-kustomize
+      generate:
+        command: ["sh", "-c"]
+        args: ["kustomize build . | argocd-vault-plugin generate -"]
+  resource.exclusions: |
+    - apiGroups:
+      - cilium.io
+      kinds:
+      - CiliumEndpoint
+      - CiliumIdentity
+      clusters:
+      - "*"
+  dex.config: |
+    logger:
+      level: debug
+      format: json
+    connectors:
+      - type: saml
+        id: saml
+        name: saml
+        config:
+          entityIssuer: https://argocd.maximillian.se/api/dex/callback
+          ssoURL: <url>
+          caData: |
+            <certificate>
+          redirectURI: https://argocd.maximillian.se/api/dex/callback
+          usernameAttr: email
+          emailAttr: email
+          groupsAttr: Group

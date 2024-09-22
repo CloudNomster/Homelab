@@ -1,0 +1,6 @@
+resources: 
+- ../base
+- ./bgp-peering-policy.yaml
+- ./LoadBalancer-ippool.yaml
+- ./internal-gateway.yaml
+- ./external-gateway.yaml

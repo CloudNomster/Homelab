@@ -1,0 +1,5 @@
+resources: 
+- ./rolebindings.yaml
+- ./roles.yaml
+
+namespace: argocd

@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: HomeLab
+  description: HomeLab base repo
+  annotations:
+    github.com/project-slug: schabo/homelab
+    backstage.io/techdocs-ref: dir:.
+    argocd/app-name: homelab
+  tags:
+    - talos
+    - kubernetes
+    - cilium
+  links:
+    - url: https://github.com/schabo/homelab
+      title: Homelab repository
+      icon: github
+      type: Code
+    - url: https://talos.dev
+      title: Talos
+      icon: docs
+      type: Docs
+    - url: https://docs.cilium.io/
+      title: Cilium
+      icon: docs
+      type: Docs
+  tags:
+    - homelab
+    - baseapp
+    - baserepo
+
+spec:
+  type: code
+  owner: schabo
+  lifecycle: testing

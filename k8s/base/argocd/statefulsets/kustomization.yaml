@@ -1,0 +1,9 @@
+resources: 
+- ./argocd-application-controller.yaml
+
+namespace: argocd
+
+images:
+- name: argocd-application-controller
+  newName: quay.io/argoproj/argocd
+  newTag: latest

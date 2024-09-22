@@ -1,0 +1,4 @@
+resources:
+- homelab.yaml
+
+namespace: argocd

@@ -1,0 +1,26 @@
+---
+apiVersion: "cilium.io/v2alpha1"
+kind: CiliumBGPPeeringPolicy
+metadata:
+ name: bgp-peering-policy
+spec: # CiliumBGPPeeringPolicySpec
+ nodeSelector:
+   matchLabels:
+     bgp-policy: vlan79
+ virtualRouters: # []CiliumBGPVirtualRouter
+ - localASN: 64514
+   exportPodCIDR: false
+   neighbors: # []CiliumBGPNeighbor
+    - peerAddress: 192.168.79.1/32
+      peerPort: 179
+      peerASN: 64512
+      eBGPMultihopTTL: 10
+      connectRetryTimeSeconds: 120
+      holdTimeSeconds: 90
+      keepAliveTimeSeconds: 30
+      gracefulRestart:
+        enabled: true
+        restartTimeSeconds: 120
+   serviceSelector:
+     matchExpressions:
+      - {key: bgp-service, operator: NotIn, values: ['false']}

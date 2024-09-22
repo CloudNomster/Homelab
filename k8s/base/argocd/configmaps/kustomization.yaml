@@ -1,0 +1,13 @@
+resources: 
+- ./argocd-cmd-params-cm.yaml
+- ./argocd-cmp.yaml
+- ./argocd-gpg-keys-cm.yaml
+- ./argocd-notifications-cm.yaml
+- ./argocd-rbac-cm.yaml
+- ./argocd-ssh-known-hosts-cm.yaml
+- ./argocd-tls-certs-cm.yaml
+
+commonLabels:
+  app.kubernetes.io/part-of: argocd
+
+namespace: argocd

@@ -1,0 +1,11 @@
+resources: 
+- ./customresourcedefinitions
+- ./clusterrbac
+- ./rbac
+- ./serviceaccounts
+- ./secrets
+- ./deployments
+- ./statefulsets
+- ./services
+- ./configmaps
+- ./repositories
