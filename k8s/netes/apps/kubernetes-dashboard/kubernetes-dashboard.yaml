@@ -27,6 +27,6 @@ spec:
         valueFiles:
           - values.yaml
 
-    - path:  k8s/netes/overlays/kubernetes-dashboard
-      repoURL: git@github.com:Schabo/homelab.git
+    - repoURL: git@github.com:Schabo/homelab.git
+      path:  k8s/netes/overlays/kubernetes-dashboard
       targetRevision: main
