@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kubernetes-dashboard
+  namespace: argocd
+spec:
+  destination:
+    namespace: kubernetes-dashboard
+    name: in-cluster
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+    - Validate=true
+    - CreateNamespace=true
+    - RespectIgnoreDifferences=true
+    - ServerSideApply=true
+  source:
+    repoURL: https://github.com/Schabo/helm-kubernetes-dashboard
+    targetRevision: main
+    path: .
+    helm:
+      releaseName: kubernetes-dashboard
+      valueFiles:
+        - values.yaml
