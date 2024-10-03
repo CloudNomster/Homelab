@@ -1,0 +1,33 @@
+---
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: HTTPRoute
+metadata:
+  name: kubernetes-dashboard-api
+spec:
+  parentRefs:
+  - name: external-gateway
+    namespace: kube-system
+  hostnames:
+  - dashboard-api.maximillian.se
+  rules:
+  - backendRefs:
+    - kind: Service
+      name: kubernetes-dashboard-api
+      port: 8000
+
+---
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: HTTPRoute
+metadata:
+  name: kubernetes-dashboard
+spec:
+  parentRefs:
+  - name: external-gateway
+    namespace: kube-system
+  hostnames:
+  - dashboard.maximillian.se
+  rules:
+  - backendRefs:
+    - kind: Service
+      name: kubernetes-dashboard-web
+      port: 8000
