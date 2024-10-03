@@ -18,11 +18,15 @@ spec:
     - CreateNamespace=true
     - RespectIgnoreDifferences=true
     - ServerSideApply=true
-  source:
-    repoURL: https://github.com/Schabo/helm-kubernetes-dashboard
-    targetRevision: main
-    path: .
-    helm:
-      releaseName: kubernetes-dashboard
-      valueFiles:
-        - values.yaml
+  sources:
+    - repoURL: https://github.com/Schabo/helm-kubernetes-dashboard
+      targetRevision: main
+      path: .
+      helm:
+        releaseName: kubernetes-dashboard
+        valueFiles:
+          - values.yaml
+
+    - path:  k8s/netes/overlays/kubernetes-dashboard
+      repoURL: git@github.com:Schabo/homelab.git
+      targetRevision: main
