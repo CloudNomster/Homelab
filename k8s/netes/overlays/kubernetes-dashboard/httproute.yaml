@@ -17,10 +17,10 @@ spec:
       name: kubernetes-dashboard-api
       port: 8000
       weight: 1	
-    matches:	
-      - path:	
-          type: PathPrefix	
-          value: /
+      matches:	
+        - path:	
+            type: PathPrefix	
+            value: /
 ---
 apiVersion: gateway.networking.k8s.io/v1beta1
 kind: HTTPRoute
@@ -40,7 +40,7 @@ spec:
       name: kubernetes-dashboard-web
       port: 8000
           weight: 1	
-      matches:	
-        - path:	
-            type: PathPrefix	
-            value: /      
+      matches:
+        - path:
+            type: PathPrefix
+            value: /
