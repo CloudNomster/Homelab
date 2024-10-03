@@ -1,5 +1,9 @@
 resources: 
+# Cilium and networking
 - ./bgp/bgp-peering-policy.yaml
 - ./bgp/external-gateway.yaml
 - ./bgp/internal-gateway.yaml
 - ./bgp/LoadBalancer-ippool.yaml
+
+# Backstage
+- ./backstage/rbac.yaml
