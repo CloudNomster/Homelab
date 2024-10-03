@@ -7,6 +7,8 @@ spec:
   parentRefs:
   - name: external-gateway
     namespace: kube-system
+    group: gateway.networking.k8s.io	
+    kind: Gateway
   hostnames:
   - dashboard-api.maximillian.se
   rules:
@@ -14,7 +16,11 @@ spec:
     - kind: Service
       name: kubernetes-dashboard-api
       port: 8000
-
+      weight: 1	
+    matches:	
+      - path:	
+          type: PathPrefix	
+          value: /
 ---
 apiVersion: gateway.networking.k8s.io/v1beta1
 kind: HTTPRoute
@@ -24,6 +30,8 @@ spec:
   parentRefs:
   - name: external-gateway
     namespace: kube-system
+    group: gateway.networking.k8s.io	
+    kind: Gateway
   hostnames:
   - dashboard.maximillian.se
   rules:
@@ -31,3 +39,8 @@ spec:
     - kind: Service
       name: kubernetes-dashboard-web
       port: 8000
+          weight: 1	
+    matches:	
+      - path:	
+          type: PathPrefix	
+          value: /      
