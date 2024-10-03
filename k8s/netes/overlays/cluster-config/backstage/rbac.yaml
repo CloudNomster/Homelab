@@ -34,6 +34,8 @@ rules:
       - '*'
     resources:
       - pods
+      - pods/exec
+      - pods/log
       - configmaps
       - services
       - deployments
@@ -42,8 +44,13 @@ rules:
       - ingresses
       - statefulsets
       - limitranges
-      - resourcequotas
       - daemonsets
+      - httproutes
+      - udproutes
+      - gateways
+      - resourcequotas
+      - resourcequotas/status
+
     verbs:
       - get
       - list
