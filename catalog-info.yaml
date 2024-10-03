@@ -11,6 +11,9 @@ metadata:
     - talos
     - kubernetes
     - cilium
+    - homelab
+    - baseapp
+    - baserepo
   links:
     - url: https://github.com/schabo/homelab
       title: Homelab repository
@@ -24,10 +27,6 @@ metadata:
       title: Cilium
       icon: docs
       type: Docs
-  tags:
-    - homelab
-    - baseapp
-    - baserepo
 
 spec:
   type: code
