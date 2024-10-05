@@ -6,4 +6,4 @@ resources:
 - ./bgp/LoadBalancer-ippool.yaml
 
 # Backstage
-- ./backstage/rbac.yaml
+#- ./backstage/rbac.yaml
