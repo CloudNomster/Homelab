@@ -16,7 +16,7 @@ stringData:
 apiVersion: v1
 kind: Secret
 metadata:
-  name: argocd-k8s-repo
+  name: argocd-base-repo
   annotations: 
     avp.kubernetes.io/path: k8s/data/argocd/repositories/argocd-k8s-repo
 type: Opaque
