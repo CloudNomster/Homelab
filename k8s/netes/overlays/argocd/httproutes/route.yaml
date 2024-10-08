@@ -5,7 +5,7 @@ metadata:
   name: argocd
 spec:
   parentRefs:
-  - name: external-gateway
+  - name: internal-gateway
     namespace: kube-system
   hostnames:
   - argocd.maximillian.se

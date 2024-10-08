@@ -73,8 +73,10 @@ spec:
   hostnames:
   - passwords.maximillian.se
   parentRefs:
-  - name: internet-shared
-    namespace: cilium
+  - name: external-gateway
+    namespace: kube-system
+    group: gateway.networking.k8s.io	
+    kind: Gateway
   rules:
   - backendRefs:
     - kind: Service
