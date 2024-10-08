@@ -11,7 +11,7 @@ spec:
     directory:
       recurse: true
     path: k8s/netes/apps
-    repoURL: git@github.com:Schabo/homelab.git
+    repoURL: git@github.com:CloudNomster/homelab.git
     targetRevision: HEAD
     plugin:
   syncPolicy:
