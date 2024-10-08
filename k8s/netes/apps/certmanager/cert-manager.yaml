@@ -19,7 +19,7 @@ spec:
     - RespectIgnoreDifferences=true
     - ServerSideApply=true
   source:
-    repoURL: https://github.com/Schabo/helm-cert-manager
+    repoURL: https://github.com/CloudNomster/helm-cert-manager
     targetRevision: main
     path: .
     helm:

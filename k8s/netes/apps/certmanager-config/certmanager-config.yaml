@@ -19,5 +19,5 @@ spec:
     - Replace=true
   source:
     path: k8s/netes/overlays/certmanager-config
-    repoURL: git@github.com:Schabo/homelab.git
+    repoURL: git@github.com:CloudNomster/homelab.git
     targetRevision: HEAD
