@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gh-runner
+  namespace: argocd
+spec:
+  destination:
+    namespace: github-runner
+    name: in-cluster
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+    - Validate=true
+    - CreateNamespace=true
+    - RespectIgnoreDifferences=true
+    - ServerSideApply=true
+  source:
+    repoURL: https://github.com/CloudNomster/helm-gh-arc
+    targetRevision: main
+    path: .
+    helm:
+      releaseName: gh-arc
+      valueFiles:
+        - values.yaml
+        
