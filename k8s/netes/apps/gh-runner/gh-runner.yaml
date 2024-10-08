@@ -1,0 +1,22 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gh-runner
+  namespace: argocd
+spec:
+  destination:
+    namespace: gh-runner
+    name: in-cluster
+  project: default
+  source:
+    path: k8s/netes/overlays/gh-runner
+    repoURL: git@github.com:CloudNomster/homelab.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
+    syncOptions:
+      - PruneLast=false
+      - CreateNamespace=true
