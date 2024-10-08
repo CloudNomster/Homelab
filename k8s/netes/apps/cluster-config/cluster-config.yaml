@@ -12,7 +12,7 @@ spec:
   source:
     path: k8s/netes/overlays/cluster-config
     repoURL: git@github.com:CloudNomster/homelab.git
-    targetRevision: main
+    targetRevision: HEAD
   syncPolicy:
     automated:
       prune: false
