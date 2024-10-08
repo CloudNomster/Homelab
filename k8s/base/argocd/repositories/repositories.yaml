@@ -1,3 +1,4 @@
+---
 apiVersion: v1
 kind: Secret
 metadata:
@@ -11,3 +12,17 @@ stringData:
   sshPrivateKey: <sshPrivateKey>
   type: git
   url: git@github.com:Schabo/homelab.git
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: argocd-k8s-repo
+  annotations: 
+    avp.kubernetes.io/path: k8s/data/argocd/repositories/argocd-k8s-repo
+type: Opaque
+stringData:
+  name: Homelab
+  project: default
+  sshPrivateKey: <sshPrivateKey>
+  type: git
+  url: git@github.com:CloudNomster/homelab.git
