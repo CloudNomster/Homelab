@@ -4,6 +4,3 @@ resources:
 - ./bgp/external-gateway.yaml
 - ./bgp/internal-gateway.yaml
 - ./bgp/LoadBalancer-ippool.yaml
-
-# Backstage
-#- ./backstage/rbac.yaml
