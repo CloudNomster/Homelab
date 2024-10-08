@@ -11,7 +11,7 @@ spec:
   project: default
   source:
     path: k8s/netes/overlays/cluster-config
-    repoURL: git@github.com:Schabo/homelab.git
+    repoURL: git@github.com:CloudNomster/homelab.git
     targetRevision: main
   syncPolicy:
     automated:
