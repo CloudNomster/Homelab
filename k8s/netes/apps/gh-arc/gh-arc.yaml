@@ -6,13 +6,9 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: actions-runner-system
+    namespace: arc-systems
     name: in-cluster
   project: default
-  source:
-    path: k8s/netes/overlays/gh-arc
-    repoURL: git@github.com:CloudNomster/homelab.git
-    targetRevision: main
   syncPolicy:
     automated:
       prune: false
@@ -21,3 +17,18 @@ spec:
       - PruneLast=false
       - CreateNamespace=true
       - ServerSideApply=true
+
+  sources:
+    - repoURL: https://github.com/CloudNomster/helm-gh-arc
+      targetRevision: main
+      path: .
+      helm:
+        releaseName: gh-arc
+        valueFiles:
+          - values.yaml
+
+    - repoURL: git@github.com:Schabo/homelab.git
+      path:  k8s/netes/overlays/gh-arc
+      targetRevision: main
+
+
