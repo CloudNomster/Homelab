@@ -29,4 +29,4 @@ stringData:
   enableOCI: "true"
   username: schabo
   password: <github_token>
-  url: ghcr.io/actions/actions-runner-controller-charts
+  url: oci://ghcr.io/actions/actions-runner-controller-charts
