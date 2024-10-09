@@ -12,3 +12,20 @@ stringData:
   sshPrivateKey: <sshPrivateKey>
   type: git
   url: git@github.com:CloudNomster/homelab.git
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  annotations: 
+    avp.kubernetes.io/path: k8s/data/github
+  labels:
+    argocd.argoproj.io/secret-type: repository
+  name: ghcr-io-repo
+  namespace: argocd
+stringData:
+  url: ghcr.io/actions/actions-runner-controller-charts
+  name: ghcr-acr
+  type: helm
+  enableOCI: "true"
+  username: schabo
+  password: <github_token>
