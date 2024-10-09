@@ -9,23 +9,24 @@ type: Opaque
 stringData:
   name: Homelab
   project: default
-  sshPrivateKey: <sshPrivateKey>
   type: git
+  sshPrivateKey: <sshPrivateKey>
   url: git@github.com:CloudNomster/homelab.git
 ---
 apiVersion: v1
 kind: Secret
 metadata:
+  name: ghcr-io-repo
   annotations: 
     avp.kubernetes.io/path: k8s/data/github
   labels:
     argocd.argoproj.io/secret-type: repository
-  name: ghcr-io-repo
-  namespace: argocd
+type: Opaque
 stringData:
-  url: ghcr.io/actions/actions-runner-controller-charts
-  name: ghcr-acr
+  name: ghcr-arc
+  project: default
   type: helm
   enableOCI: "true"
   username: schabo
   password: <github_token>
+  url: ghcr.io/actions/actions-runner-controller-charts
