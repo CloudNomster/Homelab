@@ -6,7 +6,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: gh-arc
+    namespace: actions-runner-system
     name: in-cluster
   project: default
   source:
