@@ -1,3 +1,2 @@
 resources:
   - ./secrets/secret.yaml
-  - ./actions-runner-controller.yaml
