@@ -19,7 +19,7 @@ spec:
       - ServerSideApply=true
 
   sources:
-    - repoURL: https://github.com/CloudNomster/helm-gh-arc
+    - repoURL: git@github.com:CloudNomster/helm-gh-arc.git
       targetRevision: main
       path: .
       helm:
