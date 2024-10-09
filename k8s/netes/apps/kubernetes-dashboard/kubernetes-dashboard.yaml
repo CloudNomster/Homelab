@@ -19,7 +19,7 @@ spec:
     - RespectIgnoreDifferences=true
     - ServerSideApply=true
   sources:
-    - repoURL: https://github.com/CloudNomster/helm-kubernetes-dashboard
+    - repoURL: git@github.com:CloudNomster/helm-kubernetes-dashboard.git
       targetRevision: main
       path: .
       helm:
