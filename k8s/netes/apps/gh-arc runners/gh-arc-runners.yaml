@@ -1,0 +1,34 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: github-arc-runners
+  namespace: argocd
+spec:
+  destination:
+    namespace: arc-runners
+    name: in-cluster
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
+    syncOptions:
+      - PruneLast=false
+      - CreateNamespace=true
+      - ServerSideApply=true
+
+  sources:
+    - repoURL: git@github.com:CloudNomster/helm-gh-arc-runners.git
+      targetRevision: main
+      path: .
+      helm:
+        releaseName: gh-arc-runners
+        valueFiles:
+          - values.yaml
+
+    - repoURL: git@github.com:CloudNomster/homelab.git
+      path:  k8s/netes/overlays/gh-arc-runners
+      targetRevision: main
+
+
