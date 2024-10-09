@@ -9,6 +9,7 @@ metadata:
   annotations: 
     avp.kubernetes.io/path: k8s/data/argocd/secrets/sso
 data:
+  application.instanceLabelKey: argocd.argoproj.io/instance
   url: https://argocd.maximillian.se
   accounts.backstage: apiKey
   kustomize.buildOptions: --load-restrictor LoadRestrictionsNone
