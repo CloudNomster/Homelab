@@ -12,7 +12,7 @@ spec:
       recurse: true
     path: k8s/netes/apps
     repoURL: git@github.com:CloudNomster/homelab.git
-    targetRevision: HEAD
+    targetRevision: main
     plugin:
   syncPolicy:
     automated:
