@@ -12,6 +12,20 @@ stringData:
   type: git
   sshPrivateKey: <sshPrivateKey>
   url: git@github.com:CloudNomster/homelab.git
+  ---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: argocd-helm-dashboard
+  annotations: 
+    avp.kubernetes.io/path: k8s/data/argocd/repositories/argocd-k8s-repo
+type: Opaque
+stringData:
+  name: Helm Dashboard
+  project: default
+  type: git
+  sshPrivateKey: <sshPrivateKey>
+  url: git@github.com:CloudNomster/helm-kubernetes-dashboard.git
 ---
 apiVersion: v1
 kind: Secret
