@@ -5,6 +5,8 @@ metadata:
   name: argocd-base-repo
   annotations: 
     avp.kubernetes.io/path: k8s/data/argocd/repositories/argocd-k8s-repo
+  labels:
+    argocd.argoproj.io/secret-type: repository
 type: Opaque
 stringData:
   name: Homelab
@@ -19,6 +21,8 @@ metadata:
   name: argocd-helm-dashboard
   annotations: 
     avp.kubernetes.io/path: k8s/data/argocd/repositories/argocd-k8s-repo
+  labels:
+    argocd.argoproj.io/secret-type: repository
 type: Opaque
 stringData:
   name: Helm Dashboard
