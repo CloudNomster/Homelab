@@ -50,6 +50,22 @@ stringData:
 apiVersion: v1
 kind: Secret
 metadata:
+  name: argocd-helm-gh-arc-runners
+  annotations: 
+    avp.kubernetes.io/path: k8s/data/argocd/repositories/argocd-k8s-repo
+  labels:
+    argocd.argoproj.io/secret-type: repository
+type: Opaque
+stringData:
+  name: Helm Github ARC-runners
+  project: default
+  type: git
+  sshPrivateKey: <sshPrivateKey>
+  url: git@github.com:CloudNomster/helm-gh-arc-runners.git
+---
+apiVersion: v1
+kind: Secret
+metadata:
   name: ghcr-io-repo
   annotations: 
     avp.kubernetes.io/path: k8s/data/github
