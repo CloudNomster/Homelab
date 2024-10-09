@@ -12,7 +12,7 @@ stringData:
   type: git
   sshPrivateKey: <sshPrivateKey>
   url: git@github.com:CloudNomster/homelab.git
-  ---
+---
 apiVersion: v1
 kind: Secret
 metadata:
