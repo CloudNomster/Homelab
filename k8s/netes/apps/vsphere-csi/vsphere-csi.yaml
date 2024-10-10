@@ -4,6 +4,8 @@ kind: Application
 metadata:
   name: vsphere-csi
   namespace: argocd
+  annotations:
+    avp.kubernetes.io/path: "k8s/data/vsphere"  
 spec:
   destination:
     namespace: kube-system
@@ -27,3 +29,16 @@ spec:
         valueFiles:
           - values.yaml
 
+        values: |
+          vsphere-csi:
+            global:
+              config:
+                vcenter:
+                  <hostname>:
+                    server: <hostname>
+                    user: <user>
+                    password: <pass>
+                    datacenters:
+                      - GeekHouse
+                    secretName: cpi-engineering-secret
+                    secretNamespace: kube-system
