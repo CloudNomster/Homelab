@@ -17,12 +17,6 @@ spec:
       - PruneLast=false
       - CreateNamespace=true
       - ServerSideApply=true
-    ignoreDifferences:
-      - group: storage.k8s.io
-        name: csi.vsphere.vmware.com
-        kind: "CSIDriver"
-        jsonPointers:
-          - /spec/seLinuxMount
 
   sources:
     - repoURL: git@github.com:CloudNomster/helm-vsphere-csi.git
