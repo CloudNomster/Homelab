@@ -1,0 +1,29 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vsphere-cpi
+  namespace: argocd
+spec:
+  destination:
+    namespace: kube-system
+    name: in-cluster
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
+    syncOptions:
+      - PruneLast=false
+      - CreateNamespace=true
+      - ServerSideApply=true
+
+  sources:
+    - repoURL: git@github.com:CloudNomster/helm-vsphere-cpi.git
+      targetRevision: main
+      path: .
+      helm:
+        releaseName: vsphere-cpi
+        valueFiles:
+          - values.yaml
+
