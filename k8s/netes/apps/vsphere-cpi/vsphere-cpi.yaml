@@ -4,6 +4,8 @@ kind: Application
 metadata:
   name: vsphere-cpi
   namespace: argocd
+  annotations:
+    avp.kubernetes.io/path: "k8s/data/vsphere" 
 spec:
   destination:
     namespace: kube-system
@@ -31,9 +33,9 @@ spec:
             global:
               config:
                 vcenter:
-                  <path:k8s/data/vsphere#hostname>:
-                    server: <path:k8s/data/vsphere#hostname>
-                    user: <path:k8s/data/vsphere#user>
-                    password: <path:k8s/data/vsphere#pass>
+                  <hostname>:
+                    server: <hostname>
+                    user: <user>
+                    password: <pass>
                     datacenters:
                       - GeekHouse
