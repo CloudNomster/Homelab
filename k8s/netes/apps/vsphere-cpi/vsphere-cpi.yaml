@@ -28,18 +28,7 @@ spec:
         releaseName: vsphere-cpi
         valueFiles:
           - values.yaml
-        values: |
-          vsphere-cpi:
-            global:
-              config:
-                vcenter:
-                  <hostname>:
-                    server: <hostname>
-                    user: <user>
-                    password: <pass>
-                    datacenters:
-                      - GeekHouse
-                      
+
     - repoURL: git@github.com:CloudNomster/homelab.git
       path:  k8s/netes/overlays/vsphere-cpi
       targetRevision: main
