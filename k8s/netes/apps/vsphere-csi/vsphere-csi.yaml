@@ -42,3 +42,7 @@ spec:
                       - GeekHouse
                     secretName: cpi-engineering-secret
                     secretNamespace: kube-system
+                    
+    - repoURL: git@github.com:CloudNomster/homelab.git
+      path:  k8s/netes/overlays/vsphere-csi
+      targetRevision: main
