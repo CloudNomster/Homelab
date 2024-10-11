@@ -15,4 +15,3 @@ I have a VMWare ESXi with vCenter running, everything will be deployed on that.
 - Provision Talos on vmware
 - Deploy Cilium
 - Bootstrap ArgoCD
-- Sketchy setup of cert-manager (TOFIX)
