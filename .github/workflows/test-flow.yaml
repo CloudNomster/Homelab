@@ -11,4 +11,4 @@ jobs:
         with:
           registry: ${{ secrets.HARBOR_HOST }}
           username: ${{ secrets.HARBOR_USER }}
-          password: ${{ secrets.HARBOR_PASS }}
+          password: ${{ secrets.HARBOR_TOKEN }}
