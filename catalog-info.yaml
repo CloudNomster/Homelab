@@ -4,7 +4,7 @@ metadata:
   name: HomeLab
   description: HomeLab base repo
   annotations:
-    github.com/project-slug: schabo/homelab
+    github.com/project-slug: CloudNomster/homelab
     backstage.io/techdocs-ref: dir:.
     argocd/app-name: homelab
   tags:
@@ -15,7 +15,7 @@ metadata:
     - baseapp
     - baserepo
   links:
-    - url: https://github.com/schabo/homelab
+    - url: https://github.com/CloudNomster/homelab
       title: Homelab repository
       icon: github
       type: Code
@@ -30,5 +30,5 @@ metadata:
 
 spec:
   type: code
-  owner: schabo
+  owner: group:team-nomster
   lifecycle: testing
