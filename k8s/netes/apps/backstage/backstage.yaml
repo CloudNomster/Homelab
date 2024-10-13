@@ -19,11 +19,15 @@ spec:
     - CreateNamespace=true
     - RespectIgnoreDifferences=true
     - ServerSideApply=true
-  source:
-    repoURL: https://github.com/CloudNomster/helm-backstage
-    targetRevision: main
-    path: .
-    helm:
-      releaseName: backstage
-      valueFiles:
-        - values.yaml
+  sources:
+    - repoURL: https://github.com/CloudNomster/helm-backstage
+      targetRevision: main
+      path: .
+      helm:
+        releaseName: backstage
+        valueFiles:
+          - values.yaml
+
+    - repoURL: git@github.com:CloudNomster/homelab.git
+      path:  k8s/netes/overlays/backstage
+      targetRevision: main
