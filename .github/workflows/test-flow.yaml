@@ -12,3 +12,18 @@ jobs:
           registry: ${{ secrets.HARBOR_HOST }}
           username: ${{ secrets.HARBOR_USER }}
           password: ${{ secrets.HARBOR_TOKEN }}
+
+      - name: send STARTING to Discord
+        uses: appleboy/discord-action@master
+        with:
+          webhook_id: ${{ secrets.WEBHOOK_ID }}
+          webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+          message: "Backstage build starting: ${{ github.event_name }}"
+
+      - name: send STARTING to Discord
+        uses: appleboy/discord-action@master
+        with:
+          webhook_id: ${{ secrets.WEBHOOK_ID }}
+          webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+          args: | 
+            {embeds: [{title: "Backstage build starting: ${{ github.event_name }}"}]}
