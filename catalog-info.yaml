@@ -31,7 +31,7 @@ metadata:
 spec:
   type: code
   owner: group:team-nomster
-  lifecycle: testing
+  lifecycle: production
   dependsOn: 
     - component:Backstage-Deploy
     - component:github-arc
