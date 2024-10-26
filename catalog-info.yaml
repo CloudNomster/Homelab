@@ -32,4 +32,5 @@ spec:
   type: code
   owner: group:team-nomster
   lifecycle: testing
-  dependsOn: component:Backstage-Deploy
+  dependsOn: 
+    - component:Backstage-Deploy
