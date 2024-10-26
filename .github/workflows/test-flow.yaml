@@ -21,8 +21,10 @@ jobs:
           username: ${{ secrets.HARBOR_USER }}
           password: ${{ secrets.HARBOR_TOKEN }}
 
+      - name: Install dependencies
+        run: apt update && apt install -y make
 
-      - name: send STARTING to Discord
+      - name: send DONE to Discord
         uses: appleboy/discord-action@master
         with:
           webhook_id: ${{ secrets.DISCORD_ID }}
