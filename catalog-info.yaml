@@ -34,3 +34,4 @@ spec:
   lifecycle: testing
   dependsOn: 
     - component:Backstage-Deploy
+    - component:github-arc
