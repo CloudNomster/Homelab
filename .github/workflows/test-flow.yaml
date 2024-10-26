@@ -11,25 +11,13 @@ jobs:
         with:
           webhook_id: ${{ secrets.DISCORD_ID }}
           webhook_token: ${{ secrets.DISCORD_TOKEN }}
-          color: "warning"
-          message: "Backstage build starting: ${{ github.event_name }}"
-
-      - name: Log in to the Container registry
-        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
-        with:
-          registry: ${{ secrets.HARBOR_HOST }}
-          username: ${{ secrets.HARBOR_USER }}
-          password: ${{ secrets.HARBOR_TOKEN }}
-
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y make
+          color: "#FFFF00"
+          message: "Test job: ${{ github.event_name }}"
 
       - name: send DONE to Discord
         uses: appleboy/discord-action@master
         with:
           webhook_id: ${{ secrets.DISCORD_ID }}
           webhook_token: ${{ secrets.DISCORD_TOKEN }}
-          color: "{{#success build.status}} green {{else}} red {{/success}}"
+          color: "{{#success build.status}}#00FF00{{else}}#FF0000{{/success}}"
           message: "{{#success build.status}}✅{{else}}❌{{/success}} Build succeeded: ${{ github.event_name }}"
