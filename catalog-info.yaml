@@ -35,3 +35,5 @@ spec:
   dependsOn: 
     - component:Backstage-Deploy
     - component:github-arc
+    - component:cert-manager
+    - component:kubernetes-dashboard
