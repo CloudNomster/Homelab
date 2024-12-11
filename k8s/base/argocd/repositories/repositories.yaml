@@ -128,5 +128,5 @@ stringData:
   type: helm
   enableOCI: "true"
   username: schabo
-  password: <github_token>
+  password: <sshPrivateKey>
   url: git@github.com:CloudNomster/helm-grafana-cloud.git
