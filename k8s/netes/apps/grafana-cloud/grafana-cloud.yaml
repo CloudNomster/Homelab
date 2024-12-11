@@ -1,0 +1,28 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana-cloud
+  namespace: argocd
+spec:
+  destination:
+    namespace: grafana
+    name: in-cluster
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
+    syncOptions:
+      - PruneLast=false
+      - CreateNamespace=true
+      - ServerSideApply=true
+
+  sources:
+    - repoURL: git@github.com:CloudNomster/helm-grafana-cloud.git
+      targetRevision: main
+      path: .
+      helm:
+        releaseName: grafana-cloud
+        valueFiles:
+          - values.yaml
