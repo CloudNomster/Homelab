@@ -126,6 +126,5 @@ stringData:
   name: grafana-cloud
   project: default
   type: git
-  username: schabo
-  password: <sshPrivateKey>
+  sshPrivateKey: <sshPrivateKey>
   url: git@github.com:CloudNomster/helm-grafana-cloud.git
