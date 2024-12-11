@@ -1,2 +1,4 @@
 resources:
-  - ./secrets
+  - ./secrets/loki.yaml
+  - ./secrets/prometheus.yaml
+  - ./secrets/tempo.yaml
