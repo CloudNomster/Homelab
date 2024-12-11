@@ -112,3 +112,21 @@ stringData:
   username: schabo
   password: <github_token>
   url: ghcr.io/actions/actions-runner-controller-charts
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: argocd-helm-grafana-cloud
+  annotations: 
+    avp.kubernetes.io/path: k8s/data/argocd/repositories/argocd-k8s-repo
+  labels:
+    argocd.argoproj.io/secret-type: repository
+type: Opaque
+stringData:
+  name: grafana-cloud
+  project: default
+  type: helm
+  enableOCI: "true"
+  username: schabo
+  password: <github_token>
+  url: git@github.com:CloudNomster/helm-grafana-cloud.git
