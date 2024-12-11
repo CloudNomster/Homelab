@@ -125,7 +125,7 @@ type: Opaque
 stringData:
   name: grafana-cloud
   project: default
-  type: helm
+  type: git
   enableOCI: "true"
   username: schabo
   password: <sshPrivateKey>
