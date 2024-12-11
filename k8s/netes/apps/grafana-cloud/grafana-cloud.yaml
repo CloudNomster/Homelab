@@ -26,3 +26,6 @@ spec:
         releaseName: grafana-cloud
         valueFiles:
           - values.yaml
+    - repoURL: git@github.com:CloudNomster/helm-grafana-cloud.git
+      path:  k8s/netes/overlays/grafana-cloud
+      targetRevision: main
