@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 jobs:
   Explore-GitHub-Actions:
-    runs-on: nomsterbuilder
+    runs-on: debian
     steps:
       - name: send STARTING to Discord
         uses: appleboy/discord-action@master
@@ -20,4 +20,4 @@ jobs:
           webhook_id: ${{ secrets.DISCORD_ID }}
           webhook_token: ${{ secrets.DISCORD_TOKEN }}
           color: "{{#success build.status}}#00FF00{{else}}#FF0000{{/success}}"
-          message: "{{#success build.status}}✅{{else}}❌{{/success}} Build succeeded: ${{ github.event_name }}"
+          message: "{{#success build.status}}✅{{else}}❌{{/success}} Build: ${{ github.event_name }}"
