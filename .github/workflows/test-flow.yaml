@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 jobs:
   Explore-GitHub-Actions:
-    runs-on: debian
+    runs-on: nomsterrunner
     steps:
       - name: send STARTING to Discord
         uses: appleboy/discord-action@master
